@@ -17,12 +17,28 @@
 
 <resources>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
 
+
+    <style name="MainStyle" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 
-    <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+
+    <!-- text Styles -->
+    <style name="article_body_text_style" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_marginLeft">@dimen/article_body_LR_margin</item>
+        <item name="android:layout_marginRight">@dimen/article_body_LR_margin</item>
+        <item name="android:layout_marginTop">@dimen/article_body_margin_top</item>
+        <item name="android:paddingBottom">@dimen/detail_body_bottom_margin</item>
+        <item name="android:textSize">@dimen/article_body_text_size</item>
+        <item name="android:lineSpacingMultiplier">@fraction/article_body_line_spacing_multiplier</item>
+    </style>
+
+    <style name="article_title_text_style" parent="TextAppearance.AppCompat.Large">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textColor">@color/article_title_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/article_title_text_size</item>
+        <item name="android:lineSpacingMultiplier">@fraction/article_title_line_spacing_multiplier</item>
     </style>
 
 </resources>
