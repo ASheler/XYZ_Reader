@@ -17,5 +17,6 @@
     <dimen name="fab_margins">24dp</dimen>
     <dimen name="article_body_margin_top">16dp</dimen>
     <dimen name="article_body_LR_margin">16dp</dimen>
+    <dimen name="list_item_card_margin">4dp</dimen>
 
 </resources>

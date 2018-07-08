@@ -1,6 +1,4 @@
 <com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:style="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,22 +8,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <!-- Frame layout to pack everything in scrollView -->
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- Photo container -->
             <FrameLayout
                 android:id="@+id/photo_container"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/photo_container_height"
+                android:layout_height="@dimen/detail_photo_height"
                 android:background="@color/photo_placeholder">
                 <!--suppress AndroidLintContentDescription -->
                 <ImageView
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    tools:ignore="ContentDescription"/>
+                    android:scaleType="centerCrop" />
 
                 <View
                     android:layout_width="match_parent"
@@ -34,16 +33,19 @@
 
             </FrameLayout>
 
+            <!-- linear layout with article in it -->
             <com.example.xyzreader.ui.MaxWidthLinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:maxWidth="@dimen/detail_card_max_width"
-                android:elevation="6dp"
+                android:layout_below="@+id/photo_container"
                 android:background="@color/card_background_color"
-                android:layout_below="@+id/photo_container">
+                android:layout_marginTop="@dimen/detail_card_top_margin"
+                android:elevation="4dp">
 
+                <!-- Meta bar - Bar with title and details about article -->
                 <LinearLayout
                     android:id="@+id/meta_bar"
                     android:layout_width="match_parent"
@@ -51,10 +53,10 @@
                     android:background="@color/meta_bar_background_color"
                     android:layout_gravity="bottom"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/meta_bar_LR_padding"
-                    android:paddingRight="@dimen/meta_bar_LR_padding"
-                    android:paddingTop="@dimen/meta_bar_top_padding"
-                    android:paddingBottom="@dimen/meta_bar_bottom_padding"
+                    android:paddingBottom="@dimen/detail_metabar_vert_padding"
+                    android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                    android:paddingRight="@dimen/detail_inner_horiz_margin"
+                    android:paddingTop="@dimen/detail_metabar_vert_padding"
                     >
 
                     <TextView
@@ -73,6 +75,8 @@
                         android:textColor="@color/article_byline_text_color" />
                 </LinearLayout>
 
+
+                <!-- Article Body -->
                 <TextView
                     android:id="@+id/article_body"
                     android:layout_width="match_parent"
@@ -80,15 +84,17 @@
                     style="@style/article_body_text_style" />
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </RelativeLayout>
+        </FrameLayout>
     </com.example.xyzreader.ui.ObservableScrollView>
 
 
+    <!-- FAB with sharing function -->
     <android.support.design.widget.FloatingActionButton android:id="@+id/share_fab"
         android:stateListAnimator="@anim/fab_state_list_anim"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margins"
         android:layout_width="wrap_content"
+        android:elevation="6dp"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_share"
         android:contentDescription="@string/action_share" />
